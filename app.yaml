@@ -1,0 +1,28 @@
+runtime: nodejs18
+
+env: standard
+
+instance_class: F1
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+
+env_variables:
+  NODE_ENV: "production"
+
+handlers:
+  - url: /.*
+    script: auto
+
+npm_install_on_build: true
+
+env: flex
+instance_class: F1
+
+auto_scaling:
+  min_instances: 1
+  max_instances: 10
+
+network:
+  session_affinity: "CLIENT_ID"
