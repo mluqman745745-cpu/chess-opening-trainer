@@ -1,0 +1,96 @@
+body {
+  @apply antialiased;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Chess board styles */
+.chessboard-container {
+  @apply w-full max-w-md mx-auto aspect-square;
+}
+
+/* Move arrow */
+.move-arrow {
+  @apply absolute pointer-events-none;
+}
+
+.arrow-start,
+.arrow-end {
+  @apply absolute rounded-full;
+}
+
+.arrow-start {
+  @apply w-8 h-8 border-4 border-green-400;
+}
+
+.arrow-end {
+  @apply w-10 h-10 border-4 border-green-400 bg-green-200 dark:bg-green-900;
+}
+
+/* Highlights */
+.square-highlight {
+  @apply absolute inset-0 bg-yellow-300 dark:bg-yellow-600 opacity-40 z-10;
+}
+
+.square-correct {
+  @apply bg-green-300 dark:bg-green-700 opacity-50;
+}
+
+.square-error {
+  @apply bg-red-300 dark:bg-red-700 opacity-50;
+}
+
+/* Animations */
+.pulse-highlight {
+  animation: pulse-highlight 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-highlight {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Coach message animations */
+.coach-message-enter {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-400 dark:bg-slate-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-500 dark:bg-slate-500;
+}
